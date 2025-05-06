@@ -1,9 +1,178 @@
 <!DOCTYPE html>
-<html>
+<html lang="ne">
 <head>
-  <meta http-equiv="refresh" content="0;url=https://jdev.com.np/" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Regent Residential School</title>
+ <style>
+  /* Reset & Background */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #d58c8c, #627ec6);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Login Box */
+.login-container {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 30px 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+/* Logo */
+.logo img {
+  max-width: 200px;
+  margin-bottom: 20px;
+}
+
+/* User icon */
+.user-icon {
+  width: 70px;
+  height: 70px;
+  background-color: #0a2a52;
+  border-radius: 50%;
+  margin: 0 auto 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+/* Input fields */
+.input-group {
+  position: relative;
+  margin: 15px 0;
+}
+.input-group input {
+  width: 75%;
+  padding: 12px 40px 12px 35px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(10, 42, 82, 0.9);
+  color: #fff;
+  font-size: 14px;
+}
+.input-group .icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+
+/* Options row */
+.options {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-top: 10px;
+}
+.options a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+/* Login Button */
+.login-button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 12px;
+  background-color: #0a2a52;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+.login-button:hover {
+  background-color: #123d78;
+}
+
+/* Slogan */
+.slogan {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .logo img {
+    max-width: 150px;
+  }
+  .slogan {
+    font-size: 13px;
+  }
+}
+
+.loader-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      max-width: 90%;
+    }
+
+    .loader-gif {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .loading-text {
+      font-size: 1.5rem;
+      color: #333;
+      margin-top: 15px;
+    }
+
+    @media (max-width: 600px) {
+      .loading-text {
+        font-size: 1.2rem;
+      }
+
+    }
+
+ </style>
+
 </head>
 <body>
-  <p>Redirecting...</p>
+  <div class="login-container">
+    <div class="logo">
+      <img src="Regent-Residential-School-Logo.png" alt="Regent Logo">
+    </div>
+    
+    <div class="loader-container">
+      <img src="loading.gif" alt="Loading Animation"  style="filter: drop-shadow(2px 4px 6px black);" class="loader-gif"  />
+      <div class="loading-text">Loading App, please wait...</div>
+    </div>
+    <p class="slogan">आजको सार्थक शिक्षाका निम्ति समर्पित</p><br>
+    
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Redirect after 5 seconds
+      setTimeout(() => {
+        window.location.href = "https://jdev.com.np"; 
+      }, 2000);
+    });
+  </script>
 </body>
 </html>
