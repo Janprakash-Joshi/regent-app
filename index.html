@@ -165,9 +165,18 @@ body {
     <p class="slogan">आजको सार्थक शिक्षाका निम्ति समर्पित</p>
 
     <div id="error" class="error-message" style="display: none;">
-      मुख्य वेबसाइट लोड हुन सकेन। कृपया पछि फेरि प्रयास गर्नुहोस्।
+       लोड हुन सकेन। कृपया पछि फेरि प्रयास गर्नुहोस्।
       <br>
-      <button class="retry-button" onclick="checkAndRedirect()">Retry</button>
+     <button 
+    onclick="checkAndRedirect()" 
+    style="background-color: #4CAF50; color: white; padding: 10px 20px; 
+           border: none; border-radius: 8px; cursor: pointer; 
+           font-size: 16px; display: flex; align-items: center; 
+           gap: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+           transition: background-color 0.3s;">
+    🔄 <span>Retry</span>
+</button>
+
     </div>
   </div>
 
