@@ -179,10 +179,17 @@ body {
       document.querySelector(".loader-container").style.display = "block";
 
       try {
-        const response = await fetch(mainUrl, { method: 'HEAD', mode: 'no-cors' });
-        // If fetch succeeds, we assume the site is up and redirect
-        window.location.href = mainUrl;
+        const response = await fetch(mainUrl, { method: 'GET', mode: 'cors' });
+
+        if (response.ok) {
+          // ✅ Page loaded successfully, redirect
+          window.location.href = mainUrl;
+        } else {
+          // ❌ Response exists but not OK (e.g., 404, 503)
+          throw new Error('Site returned status: ' + response.status);
+        }
       } catch (err) {
+        console.warn("Error loading site:", err);
         document.querySelector(".loader-container").style.display = "none";
         document.getElementById("error").style.display = "block";
       }
@@ -197,6 +204,5 @@ body {
 
 </body>
 </html>
-
 
   
