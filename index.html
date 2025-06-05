@@ -152,44 +152,51 @@ body {
 
 </head>
 <body>
-  <div class="login-container">
+ <div class="login-container">
     <div class="logo">
       <img src="Regent-Residential-School-Logo.png" alt="Regent Logo">
     </div>
     
     <div class="loader-container">
-      <img src="loading.gif" alt="Loading Animation"  style="filter: drop-shadow(2px 4px 6px black);" class="loader-gif"  />
+      <img src="loading.gif" alt="Loading Animation" class="loader-gif" style="filter: drop-shadow(2px 4px 6px black);" />
       <div class="loading-text">Loading App, please wait...</div>
     </div>
-    <p class="slogan">आजको सार्थक शिक्षाका निम्ति समर्पित</p><br>
-    
+
+    <p class="slogan">आजको सार्थक शिक्षाका निम्ति समर्पित</p>
+
+    <div id="error" class="error-message" style="display: none;">
+      मुख्य वेबसाइट लोड हुन सकेन। कृपया पछि फेरि प्रयास गर्नुहोस्।
+      <br>
+      <button class="retry-button" onclick="checkAndRedirect()">Retry</button>
+    </div>
   </div>
 
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-  
   <script>
+    const mainUrl = "https://jdev.com.np";
+
+    async function checkAndRedirect() {
+      document.getElementById("error").style.display = "none";
+      document.querySelector(".loader-container").style.display = "block";
+
+      try {
+        const response = await fetch(mainUrl, { method: 'HEAD', mode: 'no-cors' });
+        // If fetch succeeds, we assume the site is up and redirect
+        window.location.href = mainUrl;
+      } catch (err) {
+        document.querySelector(".loader-container").style.display = "none";
+        document.getElementById("error").style.display = "block";
+      }
+    }
+
     window.onload = () => {
-     
       setTimeout(() => {
-        window.location.href = "https://jdev.com.np";
+        checkAndRedirect();
       }, 3000);
     };
   </script>
 
-
-  
 </body>
 </html>
+
+
+  
