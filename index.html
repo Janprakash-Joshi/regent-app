@@ -183,22 +183,17 @@ body {
   </div>
 
   <script>
-    const mainUrl = "https://jdev.com.np/dashboard.php";
+  const mainUrl = "https://jdev.com.np";
 
     async function checkAndRedirect() {
       document.getElementById("error").style.display = "none";
       document.querySelector(".loader-container").style.display = "block";
 
       try {
-        const response = await fetch(mainUrl, { method: 'GET', mode: 'cors' });
-
-        if (response.ok) {
-          // ✅ Page loaded successfully, redirect
-          window.location.href = mainUrl;
-        } else {
-          // ❌ Response exists but not OK (e.g., 404, 503)
-          throw new Error('Site returned status: ' + response.status);
-        }
+        // Use no-cors to avoid CORS errors, but we can't check response status
+        await fetch(mainUrl, { method: "GET", mode: "no-cors" });
+        // No error thrown → assume the page is up
+        window.location.href = mainUrl;
       } catch (err) {
         console.warn("Error loading site:", err);
         document.querySelector(".loader-container").style.display = "none";
@@ -212,7 +207,6 @@ body {
       }, 3000);
     };
   </script>
-
 </body>
 </html>
 
